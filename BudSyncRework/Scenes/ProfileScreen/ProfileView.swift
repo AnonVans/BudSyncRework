@@ -16,7 +16,9 @@ struct ProfileView: View {
     @State var showAlert = false
     @State var showToast = false
     
+    @Environment(\.dismiss) var dismiss
     @ObservedObject private var profileVM = ProfileViewModel.shared
+    @Binding var needSignUp: Bool
     @State var timer: Timer?
     
     var body: some View {
@@ -194,13 +196,11 @@ struct ProfileView: View {
             isPresented: $showAlert) {
                 Button("Delete", role: .destructive) {
                     profileVM.deleteAccount()
+                    needSignUp = true
+                    dismiss()
                 }
                 
                 Button("Cancel") { }
             }
     }
-}
-
-#Preview {
-    ProfileView()
 }

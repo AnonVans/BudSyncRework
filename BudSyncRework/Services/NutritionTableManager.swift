@@ -21,7 +21,11 @@ class NutritionTableManager: ObservableObject {
     
     func scanImage(image: UIImage?) {
         calorie = 0
-        let cases = ["karbohidrat", "carbohydrate", "gula", "sugar", "protein", "lemak", "fat", "kolesterol", "cholesterol", "serat", "fiber"]
+        let cases = [
+            "karbohidrat", "carbohydrate", "gula", "sugar", "protein",
+            "lemak", "fat", "kolesterol", "cholesterol", "serat",
+            "fiber", "vitamin", "garam", "salt", "sodium"
+        ]
         var nutrientComponents = [String]()
         var nutrientValues = [Double]()
         

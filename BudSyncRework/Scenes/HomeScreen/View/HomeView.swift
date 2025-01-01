@@ -14,6 +14,7 @@ struct HomeView: View {
     @State var showToast = false
     
     @ObservedObject var homeVM = HomeViewModel.shared
+    @Binding var needSignUp: Bool
     @State var timer: Timer?
     
     var body: some View {
@@ -24,7 +25,7 @@ struct HomeView: View {
                 
                 VStack {
                     NavigationLink {
-                        ProfileView()
+                        ProfileView(needSignUp: $needSignUp)
                     } label: {
                         ProfileCardView()
                             .padding(.vertical, 10)

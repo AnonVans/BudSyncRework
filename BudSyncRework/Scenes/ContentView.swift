@@ -17,7 +17,7 @@ struct ContentView: View {
                 SignInView(finishSignUp: $signUp)
             } else {
                 TabView {
-                    HomeView()
+                    HomeView(needSignUp: $signUp)
                         .tabItem {
                             Label("Home", systemImage: "house.fill")
                         }
