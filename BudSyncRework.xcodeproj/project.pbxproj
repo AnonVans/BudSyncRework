@@ -29,9 +29,22 @@
 		C868327D2CDC9D15007A48D5 /* BudSyncReworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudSyncReworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C8133F412D253453001AE1D8 /* Exceptions for "BudSyncRework" folder in "BudSyncRework" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C86832622CDC9D13007A48D5 /* BudSyncRework */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C86832652CDC9D13007A48D5 /* BudSyncRework */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C8133F412D253453001AE1D8 /* Exceptions for "BudSyncRework" folder in "BudSyncRework" target */,
+			);
 			path = BudSyncRework;
 			sourceTree = "<group>";
 		};
@@ -401,7 +414,7 @@
 				DEVELOPMENT_TEAM = 2PK9G249Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BudSync;
+				INFOPLIST_FILE = BudSyncRework/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to your camera to scan qr-code and add other users as friends.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
@@ -438,7 +451,7 @@
 				DEVELOPMENT_TEAM = 2PK9G249Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = BudSync;
+				INFOPLIST_FILE = BudSyncRework/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to your camera to scan qr-code and add other users as friends.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
