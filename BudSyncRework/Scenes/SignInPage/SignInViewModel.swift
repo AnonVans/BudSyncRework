@@ -53,34 +53,4 @@ class SignInViewModel {
             print("failed saving new user")
         }
     }
-    
-    #warning("Might be deprecated")
-//    func validateSavedKey() async {
-//        let savedKey: String? = await withCheckedContinuation { continuation in
-//            self.keyChainManager.fetchKey { result in
-//                continuation.resume(returning: result)
-//            }
-//        }
-//        
-//        guard let retrievedKey = await retrievedServiceKey() else {
-//            print("No Key Found")
-//            return
-//        }
-//        
-//        if savedKey == nil {
-//            _ = keyChainManager.save(key: retrievedKey)
-//        } else if savedKey != nil && savedKey != retrievedKey {
-//            _ = keyChainManager.save(key: retrievedKey)
-//        }
-//    }
-    
-//    func retrievedServiceKey() async -> String? {
-//        let retrievedKey: String? = await withCheckedContinuation { continuation in
-//            self.cloudKitManager.fetchServiceKey { result in
-//                continuation.resume(returning: result)
-//            }
-//        }
-//        
-//        return retrievedKey
-//    }
 }
