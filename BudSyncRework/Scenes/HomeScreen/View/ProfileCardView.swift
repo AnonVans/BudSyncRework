@@ -20,7 +20,7 @@ struct ProfileCardView: View {
                 .padding(.vertical)
             
             Text(homeVM.currUser.username)
-                .font(.title2)
+                .font(.title3)
                 .fontWeight(.semibold)
                 .frame(width: 150, alignment: .leading)
                 .fixedSize(horizontal: true, vertical: false)
@@ -42,7 +42,14 @@ struct ProfileCardView: View {
                     .foregroundStyle(.textGrey)
             }
         }
-        .padding(.horizontal, 25)
+        .padding(.horizontal, 30)
+        .background {
+            RoundedRectangle(cornerRadius: 20)
+                .foregroundStyle(.bg2)
+                .frame(height: 100)
+                .opacity(0.75)
+                .padding(.horizontal, 15)
+        }
     }
 }
 
