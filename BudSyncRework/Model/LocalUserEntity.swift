@@ -39,7 +39,7 @@ struct LocalUserEntity: Hashable, Codable, Equatable {
         username: String = "",
         score: Int = 0,
         goals: [String: Double] = [
-            HealthType.SleepTime.rawValue: 7,
+            HealthType.SleepTime.rawValue: 21600,
             HealthType.CaloryBurn.rawValue: 200,
             HealthType.CalorieIntake.rawValue: 2150,
             HealthType.Carbs.rawValue: 275,

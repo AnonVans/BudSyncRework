@@ -170,7 +170,9 @@ class HomeViewModel: ObservableObject {
                     let calendar = Calendar(identifier: .gregorian)
                     let date = calendar.date(byAdding: .day, value: -1, to: Date.now)
                     localDB.updateStreak(start: currUser.startStreak, last: date)
-                    streakCount -= 1
+                    if streakCount > 0 {
+                        streakCount -= 1
+                    }
                 }
             }
         }

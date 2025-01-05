@@ -117,7 +117,7 @@ struct TrackerView: View {
                         }
                 }
             case .Nutrient:
-                VStack(spacing: 50) {
+                VStack(spacing: 25) {
                     ZStack {
                         TrackerComponentView(
                             imageName: "fork.knife",
