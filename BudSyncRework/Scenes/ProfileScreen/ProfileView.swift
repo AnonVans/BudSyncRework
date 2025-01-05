@@ -195,12 +195,12 @@ struct ProfileView: View {
             "Are you sure you want to delete your account?",
             isPresented: $showAlert) {
                 Button("Delete", role: .destructive) {
-                    profileVM.deleteAccount()
-                    needSignUp = true
-                    dismiss()
+                    Task {
+                        await profileVM.deleteAccount()
+                        needSignUp = true
+                        dismiss()
+                    }
                 }
-                
-                Button("Cancel") { }
             }
     }
 }

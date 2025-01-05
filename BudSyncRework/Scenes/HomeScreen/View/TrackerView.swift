@@ -117,7 +117,7 @@ struct TrackerView: View {
                         }
                 }
             case .Nutrient:
-                VStack(spacing: 25) {
+                VStack(spacing: 15) {
                     ZStack {
                         TrackerComponentView(
                             imageName: "fork.knife",
@@ -132,7 +132,7 @@ struct TrackerView: View {
                             .resizable()
                             .frame(width: 50, height: 50)
                             .foregroundStyle(.gray)
-                            .offset(x: 125, y: -125)
+                            .offset(x: 100, y: -100)
                             .onTapGesture {
                                 showSheet.toggle()
                             }

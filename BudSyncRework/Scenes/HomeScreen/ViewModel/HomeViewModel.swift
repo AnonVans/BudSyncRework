@@ -54,7 +54,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func inputNutrientData(calorie: Double, carbs: Double, sugar: Double, protein: Double, fat: Double) {
-        let calorieGoal = currUser.goals[HealthType.CalorieIntake.rawValue] ?? 21600.0
+        let calorieGoal = currUser.goals[HealthType.CalorieIntake.rawValue] ?? 2150.0
         let carbsGoal = currUser.goals[HealthType.Carbs.rawValue] ?? 300.0
         let sugarGoal = currUser.goals[HealthType.Sugar.rawValue] ?? 50.0
         let proteinGoal = currUser.goals[HealthType.Protein.rawValue] ?? 50.0
@@ -93,7 +93,7 @@ class HomeViewModel: ObservableObject {
     func setUpHealthData() {
         Task {
             let sleep = await healthMng.fetchSleepTimeInSec()
-            let sleepgoal = currUser.goals[HealthType.SleepTime.rawValue] ?? 21600.0
+            let sleepgoal = (currUser.goals[HealthType.SleepTime.rawValue] ?? 6.0) * 3600
             
             let energy = await healthMng.fetchQuantityType(type: HealthType.CaloryBurn)
             let energygoal = currUser.goals[HealthType.CaloryBurn.rawValue] ?? 200.0
@@ -212,33 +212,34 @@ class HomeViewModel: ObservableObject {
     func getTextInfo(state: HealthType) -> String {
         switch state {
         case .SleepTime:
-            let goal = currUser.goals[HealthType.SleepTime.rawValue] ?? 21600.0
+            let goal = currUser.goals[HealthType.SleepTime.rawValue] ?? 6.0
             let value = sleepTimeProgress * goal / 0.8
-            return "\(value / 3600)\nof\n\(goal / 3600) hour"
+            return String(format: "%.2f", value/3600) + "\nof\n\(goal) hour"
         case .CaloryBurn:
             let goal = currUser.goals[HealthType.CaloryBurn.rawValue] ?? 200.0
             let value = energyBurnProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) kcal"
+            return String(format: "%.2f", value) + "\nof\n\(goal) kcal"
         case .CalorieIntake:
-            let goal = currUser.goals[HealthType.CalorieIntake.rawValue] ?? 2000.0
+            let goal = currUser.goals[HealthType.CalorieIntake.rawValue] ?? 2150.0
             let value = calorieIntakeProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) kcal"
+            return String(format: "%.2f", value) + "\nof\n\(goal) kcal"
         case .Carbs:
             let goal = currUser.goals[HealthType.Carbs.rawValue] ?? 300.0
             let value = carbsProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) gr"
+            return String(format: "%.2f", value) + "\nof\n\(goal) gr"
         case .Sugar:
             let goal = currUser.goals[HealthType.Sugar.rawValue] ?? 50.0
             let value = sugarProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) gr"
+            return String(format: "%.2f", value) + "\nof\n\(goal) gr"
         case .Protein:
             let goal = currUser.goals[HealthType.Protein.rawValue] ?? 50.0
             let value = proteinProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) gr"
+            return String(format: "%.2f", value) + "\nof\n\(goal) gr"
         case .Fat:
             let goal = currUser.goals[HealthType.Fat.rawValue] ?? 75.0
             let value = fatProgress * goal / 0.8
-            return "\(value)\nof\n\(goal) gr"
+//            return "\(value)\nof\n\(goal) gr"
+            return String(format: "%.2f", value) + "\nof\n\(goal) gr"
         }
     }
 }

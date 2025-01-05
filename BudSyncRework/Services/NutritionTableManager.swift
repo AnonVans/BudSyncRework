@@ -100,7 +100,7 @@ class NutritionTableManager: ObservableObject {
                         print(calorieString)
                         let value = extractNumber(string: calorieString)
                         
-                        if calorie < value {
+                        if calorie < value && value < 2000 {
                             calorie = value
                         }
                     }

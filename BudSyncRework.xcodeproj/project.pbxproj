@@ -415,6 +415,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BudSyncRework/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BudSync;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to your camera to scan qr-code and add other users as friends.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
@@ -452,6 +453,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BudSyncRework/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BudSync;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This App needs access to your camera to scan qr-code and add other users as friends.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Your Health Data is used to meassure your health progress in the app.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Your Health Data is used to meassure your health progress in the app.";

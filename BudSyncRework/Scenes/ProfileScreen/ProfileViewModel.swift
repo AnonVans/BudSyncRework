@@ -80,7 +80,10 @@ class ProfileViewModel: ObservableObject {
         enableSaveChanges = email || username || profile || target
     }
     
-    func deleteAccount() {
-        localDB.removeAccount()
+    func deleteAccount() async {
+        let result = await cloudDB.deleteUser(userID: currUser.userID)
+        if result {
+            localDB.removeAccount()
+        }
     }
 }

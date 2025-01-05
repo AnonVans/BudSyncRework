@@ -194,6 +194,21 @@ class CloudKitManager {
     
     func deleteUser(userID: String) async -> Bool {
         do {
+            guard
+                let user = await fetchUser(id: userID),
+                let friends = user.friendList
+            else { return false }
+            
+            if !friends.isEmpty {
+                for friend in friends {
+                    let record = try await publicDb.record(for: CKRecord.ID(recordName: friend))
+                    var list = record.value(forKey: RecordField.FriendList.rawValue) as? [String]
+                    list?.removeAll { $0 == userID }
+                    record.setValue(list, forKey: RecordField.FriendList.rawValue)
+                    try await publicDb.save(record)
+                }
+            }
+            
             try await publicDb.deleteRecord(withID: CKRecord.ID(recordName: userID))
             return true
         } catch {

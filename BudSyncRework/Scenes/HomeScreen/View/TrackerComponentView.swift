@@ -43,7 +43,7 @@ struct TrackerComponentView: View {
                     .foregroundStyle(color)
             } else {
                 Circle()
-                    .frame(height: frameHeightInner + (lineWidth * 10) )
+                    .frame(height: frameHeightInner + (lineWidth * 3) )
                     .foregroundStyle(.bg)
                     .opacity(0.8)
                 
