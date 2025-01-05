@@ -206,4 +206,37 @@ class HomeViewModel: ObservableObject {
         
         return curr - lastCounted
     }
+    
+    func getTextInfo(state: HealthType) -> String {
+        switch state {
+        case .SleepTime:
+            let goal = currUser.goals[HealthType.SleepTime.rawValue] ?? 21600.0
+            let value = sleepTimeProgress * goal / 0.8
+            return "\(value / 3600)\nof\n\(goal / 3600) hour"
+        case .CaloryBurn:
+            let goal = currUser.goals[HealthType.CaloryBurn.rawValue] ?? 200.0
+            let value = energyBurnProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) kcal"
+        case .CalorieIntake:
+            let goal = currUser.goals[HealthType.CalorieIntake.rawValue] ?? 2000.0
+            let value = calorieIntakeProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) kcal"
+        case .Carbs:
+            let goal = currUser.goals[HealthType.Carbs.rawValue] ?? 300.0
+            let value = carbsProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) gr"
+        case .Sugar:
+            let goal = currUser.goals[HealthType.Sugar.rawValue] ?? 50.0
+            let value = sugarProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) gr"
+        case .Protein:
+            let goal = currUser.goals[HealthType.Protein.rawValue] ?? 50.0
+            let value = proteinProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) gr"
+        case .Fat:
+            let goal = currUser.goals[HealthType.Fat.rawValue] ?? 75.0
+            let value = fatProgress * goal / 0.8
+            return "\(value)\nof\n\(goal) gr"
+        }
+    }
 }

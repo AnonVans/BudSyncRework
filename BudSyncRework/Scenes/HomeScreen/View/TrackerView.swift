@@ -80,6 +80,7 @@ struct TrackerView: View {
                 ZStack {
                     TrackerComponentView(
                         imageName: state.getStateImage(),
+                        textContent: homeVM.getTextInfo(state: .SleepTime),
                         color: state.getColor(),
                         frameHeightInner: 250,
                         lineWidth: 20,
@@ -99,6 +100,7 @@ struct TrackerView: View {
                 ZStack {
                     TrackerComponentView(
                         imageName: state.getStateImage(),
+                        textContent: homeVM.getTextInfo(state: .CaloryBurn),
                         color: state.getColor(),
                         frameHeightInner: 250,
                         lineWidth: 20,
@@ -115,10 +117,11 @@ struct TrackerView: View {
                         }
                 }
             case .Nutrient:
-                VStack(spacing: 15) {
+                VStack(spacing: 50) {
                     ZStack {
                         TrackerComponentView(
                             imageName: "fork.knife",
+                            textContent: homeVM.getTextInfo(state: .CalorieIntake),
                             color: .nutrient,
                             frameHeightInner: 175,
                             lineWidth: 15,
@@ -135,9 +138,10 @@ struct TrackerView: View {
                             }
                     }
                     
-                    HStack(spacing: 25) {
+                    HStack(spacing: 100) {
                         TrackerComponentView(
                             imageName: "fish.fill",
+                            textContent: homeVM.getTextInfo(state: .Protein),
                             color: .brown,
                             frameHeightInner: 75,
                             lineWidth: 7.5,
@@ -146,6 +150,7 @@ struct TrackerView: View {
                         
                         TrackerComponentView(
                             imageName: "drop.fill",
+                            textContent: homeVM.getTextInfo(state: .Fat),
                             color: .yellow,
                             frameHeightInner: 75,
                             lineWidth: 7.5,
@@ -153,9 +158,10 @@ struct TrackerView: View {
                         )
                     }
                     
-                    HStack(spacing: 25) {
+                    HStack(spacing: 100) {
                         TrackerComponentView(
                             imageName: "takeoutbag.and.cup.and.straw.fill",
+                            textContent: homeVM.getTextInfo(state: .Carbs),
                             color: .orange,
                             frameHeightInner: 75,
                             lineWidth: 7.5,
@@ -164,6 +170,7 @@ struct TrackerView: View {
                         
                         TrackerComponentView(
                             imageName: "birthday.cake.fill",
+                            textContent: homeVM.getTextInfo(state: .Sugar),
                             color: .mint,
                             frameHeightInner: 75,
                             lineWidth: 7.5,
