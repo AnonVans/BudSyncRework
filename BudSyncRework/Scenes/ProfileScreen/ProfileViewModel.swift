@@ -12,6 +12,7 @@ class ProfileViewModel: ObservableObject {
     static let shared = ProfileViewModel()
     private let localDB = LocalDataManager.shared
     private let cloudDB = CloudKitManager.shared
+    private let homeVM = HomeViewModel.shared
 
     private var defaultUser = LocalUserEntity()
     @Published var currUser = LocalUserEntity()
@@ -56,6 +57,8 @@ class ProfileViewModel: ObservableObject {
             )
         )
         
+        homeVM.fetchCurrentUser()
+
         DispatchQueue.main.async {
             self.enableSaveChanges = false
             self.updateSuccess = result

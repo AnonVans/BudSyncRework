@@ -39,7 +39,6 @@ class HomeViewModel: ObservableObject {
     
     func fetchCurrentUser() {
         guard let user = localDB.fetchUser() else {
-            print("Fuck")
             return
         }
         currUser = user
@@ -214,7 +213,7 @@ class HomeViewModel: ObservableObject {
         case .SleepTime:
             let goal = currUser.goals[HealthType.SleepTime.rawValue] ?? 6.0
             let value = sleepTimeProgress * goal / 0.8
-            return String(format: "%.2f", value/3600) + "\nof\n\(goal) hour"
+            return String(format: "%.2f", value) + "\nof\n\(goal) hour"
         case .CaloryBurn:
             let goal = currUser.goals[HealthType.CaloryBurn.rawValue] ?? 200.0
             let value = energyBurnProgress * goal / 0.8
@@ -238,7 +237,6 @@ class HomeViewModel: ObservableObject {
         case .Fat:
             let goal = currUser.goals[HealthType.Fat.rawValue] ?? 75.0
             let value = fatProgress * goal / 0.8
-//            return "\(value)\nof\n\(goal) gr"
             return String(format: "%.2f", value) + "\nof\n\(goal) gr"
         }
     }
