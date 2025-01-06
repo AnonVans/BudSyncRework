@@ -12,7 +12,7 @@ struct ProfileCardView: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: homeVM.currUser.generateImage())
+            Image(uiImage: homeVM.profileImage)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 70, height: 70)

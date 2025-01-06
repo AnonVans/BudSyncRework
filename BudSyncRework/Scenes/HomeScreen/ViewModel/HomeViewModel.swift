@@ -25,6 +25,7 @@ class HomeViewModel: ObservableObject {
     
     @Published var showToast = false
     @Published var inputResult = false
+    @Published var profileImage = UIImage(systemName: "person.crop.circle")!
     
     static let shared = HomeViewModel()
     private let localDB = LocalDataManager.shared
@@ -42,6 +43,7 @@ class HomeViewModel: ObservableObject {
             return
         }
         currUser = user
+        profileImage = currUser.generateImage()
     }
     
     func setUpStreak() {
