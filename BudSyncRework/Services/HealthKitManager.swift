@@ -204,34 +204,49 @@ class HealthKitManager {
             let endRange = calendar.startOfDay(for: endDate)
             
             guard
-                var startTime = calendar.date(byAdding: .hour, value: -6, to: startRange),
-                var endTime = calendar.date(byAdding: .day, value: 1, to: startTime),
-                let lastCheck = calendar.date(byAdding: .hour, value: -6, to: endRange)
+                var endTime = calendar.date(byAdding: .hour, value: 18, to: endRange),
+                var startTime = calendar.date(byAdding: .day, value: -1, to: endTime),
+                let lastCheck = calendar.date(byAdding: .hour, value: -6, to: startRange)
             else { return returnedData }
+            var sleepQuantity = 0.0
             
             for result in results {
-                var sleepQuantity = 0.0
-                
-                if result.value == 0 && endTime <= lastCheck {
-                    if result.startDate > startTime && result.endDate < endTime {
+                if result.value == 0 && result.startDate >= lastCheck {
+                    if result.endDate < endTime && result.startDate > startTime {
                         let startSleep = result.startDate
                         let endSleep = result.endDate
                         let sleepTime = endSleep.timeIntervalSince(startSleep)
                         sleepQuantity += sleepTime
+                    } else {
+                        let value = sleepQuantity / 3600
+                        returnedData.append(HistoricalData(date: calendar.startOfDay(for: endTime), value: value))
+                        
+                        guard
+                            let nextStartTime = calendar.date(byAdding: .day, value: -1, to: startTime),
+                            let nextEndTime = calendar.date(byAdding: .day, value: -1, to: endTime)
+                        else { continue }
+                        
+                        startTime = nextStartTime
+                        endTime = nextEndTime
+                        sleepQuantity = 0.0
                     }
-                    
-                    returnedData.append(HistoricalData(date: calendar.startOfDay(for: endTime), value: sleepQuantity))
                 }
-                
+            }
+            
+            while startTime >= lastCheck {
+                let value = sleepQuantity / 3600
+                returnedData.append(HistoricalData(date: calendar.startOfDay(for: endTime), value: value))
                 
                 guard
-                    let nextStartTime = calendar.date(byAdding: .day, value: 1, to: startTime),
-                    let nextEndTime = calendar.date(byAdding: .day, value: 1, to: endTime)
+                    let nextStartTime = calendar.date(byAdding: .day, value: -1, to: startTime),
+                    let nextEndTime = calendar.date(byAdding: .day, value: -1, to: endTime)
                 else { continue }
                 
                 startTime = nextStartTime
                 endTime = nextEndTime
+                sleepQuantity = 0.0
             }
+            
         } catch {
             print("Error on fetching historical data: \(error.localizedDescription)")
         }

@@ -28,7 +28,7 @@ struct DataHistoryView: View {
                             .foregroundStyle(.secondary)
                         
                         Text(
-                            "\(dataVM.dataTotal, format: .number) \(HealthType.getType(stringType: selectedType)?.getDataType() ?? "kcal")"
+                            String(format: "%.2f", dataVM.dataTotal) + " \(HealthType.getType(stringType: selectedType)?.getDataType() ?? "kcal")"
                         )
                         .font(.largeTitle)
                         .bold()

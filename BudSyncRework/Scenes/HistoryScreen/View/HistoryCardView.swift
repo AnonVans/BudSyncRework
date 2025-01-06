@@ -17,7 +17,7 @@ struct HistoryCardView: View {
             
             Spacer()
             
-            Text("\(data.value, format: .number) \(type.getDataType())")
+            Text(String(format: "%.2f", data.value) + " " + type.getDataType())
         }
         .font(.callout)
         .fontWeight(.semibold)
