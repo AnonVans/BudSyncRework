@@ -24,7 +24,7 @@ struct ContentView: View {
                     
                     DataHistoryView()
                         .tabItem {
-                            Label("Histroy", systemImage: "document.on.document.fill")
+                            Label("History", systemImage: "document.on.document.fill")
                         }
                     
                     LeaderBoardView()
